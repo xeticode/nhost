@@ -1,0 +1,39 @@
+{
+  "name": "@nhost-examples/react-apollo",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prettier": "prettier --check src/",
+    "prettier:fix": "prettier --write src/",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "verify": "run-p prettier lint",
+    "verify:fix": "run-p prettier:fix lint:fix"
+  },
+  "lib": "workspace:*",
+  "dependencies": {
+    "@apollo/client": "^3.5.10",
+    "@nhost/react": "workspace:^0.5.0",
+    "@nhost/react-apollo": "workspace:^4.0.10",
+    "@rsuite/icons": "^1.0.2",
+    "jwt-decode": "^3.1.2",
+    "less": "^4.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-json-view": "^1.21.3",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "rsuite": "^5.7.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@vitejs/plugin-react": "^1.3.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.1"
+  }
+}

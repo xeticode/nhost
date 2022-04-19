@@ -1,0 +1,26 @@
+{
+  "name": "examples-exporter",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Examples exporter from the pnpm workspace to the examples/ directory",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "author": "Pierre-Louis Mercereau",
+  "license": "ISC",
+  "dependencies": {
+    "@pnpm/find-workspace-dir": "^4.0.0",
+    "@pnpm/find-workspace-packages": "^3.1.43",
+    "@pnpm/logger": "^4.0.0",
+    "@pnpm/read-project-manifest": "^3.0.0",
+    "fs-extra": "^10.0.1",
+    "json5": "^2.2.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^17.0.23"
+  }
+}
