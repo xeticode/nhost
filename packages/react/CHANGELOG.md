@@ -1,5 +1,17 @@
 # @nhost/react
 
+## 0.5.5
+
+### Patch Changes
+
+- @nhost/nhost-js@1.1.2
+
+## 0.5.4
+
+### Patch Changes
+
+- @nhost/nhost-js@1.1.1
+
 ## 0.5.3
 
 ### Patch Changes

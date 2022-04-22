@@ -1,5 +1,4 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { BroadcastChannel } from 'broadcast-channel'
 import { assign, createMachine, send } from 'xstate'
 
 import {
@@ -529,10 +528,10 @@ export const createAuthMachine = ({
           errors: ({ errors: { registration, ...errors } }) => errors
         }),
         saveInvalidSignUpPassword: assign({
-          errors: ({ errors }) => ({ ...errors, registration: INVALID_EMAIL_ERROR })
+          errors: ({ errors }) => ({ ...errors, registration: INVALID_PASSWORD_ERROR })
         }),
         saveInvalidSignUpEmail: assign({
-          errors: ({ errors }) => ({ ...errors, registration: INVALID_PASSWORD_ERROR })
+          errors: ({ errors }) => ({ ...errors, registration: INVALID_EMAIL_ERROR })
         }),
         saveNoMfaTicketError: assign({
           errors: ({ errors }) => ({ ...errors, registration: NO_MFA_TICKET_ERROR })
@@ -660,9 +659,13 @@ export const createAuthMachine = ({
           // TODO remove the hash. For the moment, it is kept to avoid regression from the current SDK.
           // * Then, only `refreshToken` will be in the hash, while `type` will be sent by hasura-auth as a query parameter
           // window.history.pushState({}, '', location.pathname)
-          const channel = new BroadcastChannel('nhost')
-          // ? broadcat session instead of token ?
-          channel.postMessage(refreshToken)
+          try {
+            const channel = new BroadcastChannel('nhost')
+            // ? broadcat session instead of token ?
+            channel.postMessage(refreshToken)
+          } catch (error) {
+            // * BroadcastChannel is not available e.g. react-native
+          }
           return { session }
         },
         importRefreshToken: async () => {
