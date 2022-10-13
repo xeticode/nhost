@@ -1,5 +1,6 @@
+import Stripe from 'stripe';
 import { builder } from '../builder'
-import { StripePaymentMethod, StripeSubscription } from '../types'
+import { StripePaymentMethod, StripeSubscription, StripePaymentIntent } from '../types'
 import { stripe } from '../utils'
 
 builder.objectType('StripeInvoice', {

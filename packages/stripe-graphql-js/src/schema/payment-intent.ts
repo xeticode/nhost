@@ -17,34 +17,34 @@ builder.objectType('StripePaymentIntent', {
         type: 'JSON',
         nullable: true
     }),
-    paymentMethodTypes: t.exposeStringList('paymentMethodTypes'),
-    statementDescriptor: t.exposeString('statementDescriptor', {
+    paymentMethodTypes: t.exposeStringList('payment_method_types'),
+    statementDescriptor: t.exposeString('statement_descriptor', {
         nullable: true
     }),
-    statementDescriptorSuffix: t.exposeString('statementDescriptorSuffix',{
+    statementDescriptorSuffix: t.exposeString('statement_descriptor_suffix',{
         nullable: true
     }),
-    receiptEmail: t.exposeString('receiptEmail', {
+    receiptEmail: t.exposeString('receipt_email', {
         nullable: true
     }),
     customer: t.exposeString('customer'),
-    amountCapturable: t.exposeInt('amountCapturable'),
-    amountDetails: t.expose('amountDetails', {
+    amountCapturable: t.exposeInt('amount_capturable'),
+    amountDetails: t.expose('amount_details', {
         nullable: true,
         type: 'JSON'
     }),
-    amountReceived: t.exposeInt('amountReceived'),
+    amountReceived: t.exposeInt('amount_received'),
 
-    applicationFeeAmount: t.exposeInt('applicationFeeAmount', {
+    applicationFeeAmount: t.exposeInt('application_fee_amount', {
         nullable:true
     }),
-    canceledAt: t.exposeInt('canceledAt', {
+    canceledAt: t.exposeInt('canceled_at', {
         nullable: true
     }),
-    transferGroup: t.exposeString('transferGroup',{ 
+    transferGroup: t.exposeString('transfer_group',{ 
       nullable:true
     }),
-    cancellationReason: t.exposeString('cancellationReason', {
+    cancellationReason: t.exposeString('cancellation_reason', {
         nullable:true
     }),
     created: t.exposeInt('created', {
