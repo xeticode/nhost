@@ -179,6 +179,21 @@ builder.objectType('StripeInvoice', {
       description: `Returns true if the invoice was manually marked paid, returns false if the invoice hasn't been paid yet or was paid on Stripe.`
     }),
     // todo: payment intent
+    paymentIntent: t.field({
+      type: 'StripePaymentIntent',
+      nullable: true,
+      resolve: async (invoice) => {
+        const { payment_intent } = invoice
+
+        if (!payment_intent) {
+          return null
+        }
+
+        const paymentIntentData = await stripe.paymentIntents.retrieve(payment_intent as string) 
+
+        return paymentIntentData as Stripe.Response<StripePaymentIntent> 
+      }
+    }),
     // todo: payment settings
     periodEnd: t.exposeInt('period_end', {
       description: `End of the usage period during which invoice items were added to this invoice.`
